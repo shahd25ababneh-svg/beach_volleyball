@@ -190,9 +190,6 @@ with tab6:
             "loser_rank": rank_2,
             "year": game_year
         }])
-
-        # 🚀 التحميل إلى SQL (الـ LOAD)
-        # نستخدم if_exists='append' لكي تضاف البيانات للجدول القديم ولا تمسحه
         new_data.to_sql('user_custom_matches', con=engine, if_exists='append', index=False)
         st.success(f"✅ Match between {team_1} and {team_2} is saved !")
         st.divider()
@@ -205,5 +202,6 @@ with tab6:
             st.metric("Missing Values", df.isnull().sum().sum())
         with col_stat3:
             st.metric("Data Quality", "100%" if df.isnull().sum().sum() == 0 else "95%")
+
 
         st.success("✨ The data is cleaned, encoded, and stored in the SQL Database.")
