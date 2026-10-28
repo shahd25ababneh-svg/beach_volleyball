@@ -2,3 +2,5 @@ matplotlib
 streamlit
 pandas
 sqlalchemy
+numpy
+seaborn
