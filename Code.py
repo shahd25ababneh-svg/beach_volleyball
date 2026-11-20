@@ -168,7 +168,7 @@ with tab2:
     col_chart, col_text = st.columns([2, 2])
     with col_chart:
       st.bar_chart(df["gender"].value_counts())
-      st.info("💡 M and W distribution is very balanced.")
+      st.info("💡 M and w distribution.")
     with col_text:
       st.write("❓ **Does gender make a difference?**")
       st.write("The dataset shows that the number of men played vb, at that time were 4k higher than women , who played at the same time ")
