@@ -11,7 +11,6 @@ path = r"C:\Users\Asus\Downloads\archive (1)\vb_matches.csv"
 # 🏐 Page Header
 st.title("🏐 The FIVB & AVP Beach Volleyball Records 🏐")
 
-st.image(r"C:\Users\Asus\Downloads\تنزيل (1).webp", width = 600)
 
 
 # 📥 Data Extraction
