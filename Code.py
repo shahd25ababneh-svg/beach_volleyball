@@ -171,7 +171,8 @@ with tab2:
       st.info("💡 M and W distribution is very balanced.")
     with col_text:
       st.write("❓ **Does gender make a difference?**")
-      st.write("The dataset shows almost equal representation for both genders.")
+      st.write("The dataset shows that the number of men played vb ")
+      st.write("at that time were 4k higher than women , who played at the same time. ")
   if dis == "📏 Height":
     st.subheader("📏 Height Distribution")
     hieght_line = df["w_p1_hgt"].value_counts()
