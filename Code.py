@@ -4,9 +4,30 @@ import streamlit as st
 import matplotlib.pyplot as plt
 from sqlalchemy import create_engine
 import seaborn as sns
+import os 
+from pathlib import Path
+import kagglehub
+import pandas as pd
+import streamlit as st
+
+if "KAGGLE_API_TOKEN" in st.secrets:
+  os.environ["KAGGLE_API_TOKEN"] = st.secrets["KAGGLE_API_TOKEN"]
+
+
+  @st.cache_data
+  def load_data():
+    dataset_dir = Path(kagglehub.dataset_download("jessemostipak/beach-volleyball"))
+    csv_files = list(dataset_dir.rglob("*.csv"))
+    if not csv_files:
+            files = [str(p.relative_to(dataset_dir)) for p in dataset_dir.rglob("*")]
+            raise FileNotFoundError(f"No CSV found. Files in dataset: {files}")
+            return pd.read_csv(csv_files[0])
+
+
+            df = load_data()
 
 # 📂 Path setup
-path = r"C:\Users\Asus\Downloads\archive (1)\vb_matches.csv"
+
 
 # 🏐 Page Header
 st.title("🏐 The FIVB & AVP Beach Volleyball Records 🏐")
@@ -14,8 +35,8 @@ st.title("🏐 The FIVB & AVP Beach Volleyball Records 🏐")
 
 
 # 📥 Data Extraction
-df_bef = pd.read_csv(path)
-df = pd.read_csv(path)
+df_bef = df
+
 
 # ✂️ Data Cleaning: Dropping unnecessary columns
 df = df.drop(columns=[
